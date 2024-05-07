@@ -4,7 +4,10 @@
 
 <div class="w-screen h-screen flex ">
     <SideBar/>
-    <slot />
+    <div class="overflow-y-auto h-screen">
+        <slot />
+    </div>
+    
 </div>
 <style lang="postcss">
 	:global(html) {
