@@ -1,0 +1,50 @@
+<script lang="ts">
+    import { vigenereCipher, generateVigenereKey } from '$lib/clases/encriptacion/utils'; // Asegúrate de que la ruta y los nombres de las funciones sean correctos
+    import Icon from '@iconify/svelte';
+
+    export let llave, mensaje;
+    let vigenereKey:string;
+    let cifrado:string;
+    $: {
+        vigenereKey = generateVigenereKey(mensaje.toUpperCase(), llave.toUpperCase());
+         cifrado = vigenereCipher(mensaje.toUpperCase(), vigenereKey);
+    }
+</script>
+
+<div class="flex flex-col gap-y-5 w-1/2 justify-center items-center">
+    <p>Aqui veras el proceso para generar el mensaje cifrado, el texto en <strong class="text-green">Verde</strong> 
+        es tu mensaje original, el texto en <strong class="text-red">Rojo</strong> es tu llave secreta y el texto en 
+        <strong class="text-blue">Azul</strong> es tu mensaje cifrado.
+    </p>
+    <div class="flex justify-center items-center ">
+        {#each Array.from(mensaje.toUpperCase()) as letra}
+        <div class=" p-4 border-2 bg-green text-white font-bold rounded-lg border-black mx-1 w-6 h-6 flex justify-center items-center">{letra}</div>
+        {/each}
+    </div>
+    <div class="flex justify-center items-center ">
+        {#each Array.from(mensaje) as _}
+
+                    <Icon icon="mingcute:arrows-down-fill" class=" mx-1 w-8 h-6 " />
+
+
+        {/each}
+    </div>
+    <div class="flex justify-center items-center ">
+        {#each Array.from(vigenereKey) as letra}
+        <div class="p-4 border-2 rounded-lg bg-red text-white font-bold border-black mx-1 w-6 h-6 flex justify-center items-center">{letra}</div>
+        {/each}
+    </div>
+    <div class="flex justify-center items-center ">
+        {#each Array.from(mensaje) as _}
+
+                    <Icon icon="mingcute:arrows-down-fill" class=" mx-1 w-8 h-6 " />
+
+
+        {/each}
+    </div>
+    <div class="flex justify-center items-center ">
+        {#each Array.from(cifrado) as letra}
+        <div class="p-4 border-2 rounded-lg bg-blue text-white font-bold border-black mx-1 w-6 h-6 flex justify-center items-center">{letra}</div>
+        {/each}
+    </div>
+</div>

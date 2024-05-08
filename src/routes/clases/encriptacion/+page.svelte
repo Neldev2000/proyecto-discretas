@@ -6,7 +6,7 @@
 	
 </script>
 
-<div class="mt-10 mx-10 text-second w-full">
+<div class="mt-10 mx-10 text-second w-full text-lg">
 	<h1 class="font-bold text-5xl">Encriptacion</h1>
 	<h1 class="text-3xl mt-10">
 		En esta seccion aprenderas sobre los diferentes metodos de encriptacion
