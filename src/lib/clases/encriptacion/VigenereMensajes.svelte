@@ -11,11 +11,13 @@
     }
 </script>
 
-<div class="flex flex-col gap-y-5 w-1/2 justify-center items-center">
-    <p>Aqui veras el proceso para generar el mensaje cifrado, el texto en <strong class="text-green">Verde</strong> 
-        es tu mensaje original, el texto en <strong class="text-red">Rojo</strong> es tu llave secreta y el texto en 
-        <strong class="text-blue">Azul</strong> es tu mensaje cifrado.
-    </p>
+<div class="flex flex-col gap-y-1 justify-center items-center">
+    <div class="">
+        <p>Aqui veras el proceso para generar el mensaje cifrado, el texto en <strong class="text-green">Verde</strong> 
+            es tu mensaje original, el texto en <strong class="text-red">Rojo</strong> es tu llave secreta y el texto en 
+            <strong class="text-blue">Azul</strong> es tu mensaje cifrado.
+        </p>
+    </div>
     <div class="flex justify-center items-center ">
         {#each Array.from(mensaje.toUpperCase()) as letra}
         <div class=" p-4 border-2 bg-green text-white font-bold rounded-lg border-black mx-1 w-6 h-6 flex justify-center items-center">{letra}</div>
