@@ -9,8 +9,3 @@
     </div>
     
 </div>
-<style lang="postcss">
-	:global(html) {
-		background-color: theme(colors.backgroundColor);
-	}
-</style>

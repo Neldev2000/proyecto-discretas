@@ -5,22 +5,29 @@
 
 
 <html lang="en">
-	<div class="ml-40 mt-40">
-		<h1 class="font-bold text-5xl text-second">Code Nook</h1>
-		<h1 class="text-3xl mt-10 text-second">
-			Tu lugar favorito para aprender de Teoria de <br /> Codificacion
-		</h1>
-		<h1 class="font-bold text-4xl mt-20 text-second">Temas</h1>
 
-		<div class="mt-20 flex justify-center items-center gap-x-40">
+	<div class="mt-40 mx-40 ">
+		<h1 class="text-5xl font-bold">Code Nook</h1>
+		<p class="mt-10 text-3xl">
+			Tu lugar favorito para aprender de <br>
+			la Teoria de Codificacion
+		</p>
+
+		<h2 class="text-4xl mt-20 mb-10 font-bold">Clases</h2>
+		<div class=" grid grid-cols-3 gap-x-20 w-full">
 			{#each clases as clase}
-				<CardClases enlace={clase.enlace} titulo={clase.titulo} />
+				<CardClases
+					enlace={clase.enlace}
+					titulo={clase.titulo}
+					enlaceImagen={clase.enlaceImagen}
+					descripcion={clase.descripcion}
+					hoverColor= {clase.hoverColor}
+				/>
 			{/each}
 		</div>
 	</div>
+
 </html>
 <style lang="postcss">
-	:global(html) {
-		background-color: theme(colors.backgroundColor);
-	}
+	
 </style>

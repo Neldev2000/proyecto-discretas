@@ -1,7 +1,7 @@
 <script>
     import "../app.css";
   </script>
-  <body class="bg-background">
+  <body >
     <slot />
   </body>
   
