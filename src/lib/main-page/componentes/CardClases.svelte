@@ -5,7 +5,7 @@
 
 <a href={enlace} class={`w-fit `} >
     <div 
-        class={`w-72 h-80 shadow-lg rounded-lg transition-shadow duration-200 hover:shadow-${hoverColor}-hover`}
+        class={`w-72 h-80 bg-white shadow-lg rounded-lg transition-shadow duration-200 ${hoverColor}`}
     >
         <img src={enlaceImagen} alt={titulo} class="w-full h-36 object-cover rounded-t-lg">
         <div class="p-4 mt-5 ">

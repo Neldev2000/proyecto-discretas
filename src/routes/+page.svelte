@@ -4,7 +4,7 @@
 </script>
 
 
-<html lang="en">
+<html lang="en" class="bg-backgroundColor">
 
 	<div class="mt-40 mx-40 mb-20">
 		<h1 class="text-5xl font-bold">Code Nook</h1>
@@ -28,6 +28,4 @@
 	</div>
 
 </html>
-<style lang="postcss">
-	
-</style>
+
