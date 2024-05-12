@@ -23,6 +23,15 @@ const config = {
 		encriptacion: {
 			hover: "#D9AFD9"
 		},
+		mediosTransmision: {
+			hover: "#80D0C7"
+		},
+		errores: {
+			hover: "#FBAB7E"
+		},
+		almacenamientoDatos: {
+			hover: "#8BC6EC"
+		},
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",
 				ring: "hsl(var(--ring) / <alpha-value>)",
@@ -65,11 +74,7 @@ const config = {
 			fontFamily: {
 				sans: [...fontFamily.sans]
 			},
-			boxShadow: {
-                'encriptacion': '0 0 10px #D9AFD9',
-				'medios-transmision' : '0 0 10px #80D0C7',
-				'errores' : '0 0 10px #F7CE68',
-            },
+			
 		}
 	},
 	variants: {
