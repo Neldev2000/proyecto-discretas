@@ -1,6 +1,5 @@
 <script>
-	import VIGENERE_EJEMPLO from '$lib/clases/encriptacion/IMAGES/vigenere_ejemplo.png';
-	import VIGENERE_DESCIFRADO from '$lib/clases/encriptacion/IMAGES/vigenere_descifrado.png';
+
 	import VigenereMensajes from './VigenereMensajes.svelte';
 
 	import * as Dialog from "$lib/components/ui/dialog";
