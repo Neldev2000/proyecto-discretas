@@ -15,7 +15,7 @@
 		</p>
 
 		<h2 class="text-4xl mt-20 mb-10 font-bold">Clases</h2>
-		<div class=" grid grid-cols-3 gap-y-10 gap-x-20 w-full">
+		<div class=" grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-20 w-full">
 			{#each clases as clase}
 				<CardClases
 			

@@ -31,7 +31,9 @@ const config = {
           	'end-gradient': '#32CCBC',
 		},
 		errores: {
-			hover: "#FBAB7E"
+			hover: "#FBAB7E",
+			'start-gradient': '#FBAB7E',
+          	'end-gradient': '#F7CE68',
 		},
 		almacenamientoDatos: {
 			hover: "#8BC6EC"
