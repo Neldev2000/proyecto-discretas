@@ -26,7 +26,9 @@ const config = {
           	'end-gradient': '#d9afd9',
 		},
 		mediosTransmision: {
-			hover: "#80D0C7"
+			hover: "#32CCBC",
+			'start-gradient': '#08AEEA',
+          	'end-gradient': '#32CCBC',
 		},
 		errores: {
 			hover: "#FBAB7E"

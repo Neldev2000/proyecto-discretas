@@ -18,7 +18,7 @@
 		<div class=" grid grid-cols-3 gap-y-10 gap-x-20 w-full">
 			{#each clases as clase}
 				<CardClases
-					fade={clase.fade}
+			
 					enlace={clase.enlace}
 					titulo={clase.titulo}
 					enlaceImagen={clase.enlaceImagen}

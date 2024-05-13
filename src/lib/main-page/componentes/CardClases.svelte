@@ -1,7 +1,7 @@
 <script lang="ts">
-    export let  enlace: string, titulo: string, enlaceImagen: string, descripcion: string, hoverColor: string, fade: string;
+    export let  enlace: string, titulo: string, enlaceImagen: string, descripcion: string, hoverColor: string;
     import { crossfade } from 'svelte/transition';
-  const [send, receive] = crossfade({});
+
 </script>
 
 <a href={enlace} class={`w-fit `}   >

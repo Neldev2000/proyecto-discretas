@@ -1,8 +1,12 @@
 <script lang="ts">
+	import * as Carousel from "$lib/components/ui/carousel";
 	let mensaje = '';
 	let mensajeBinario: { letra: string; binario: string }[] = [];
 	let primeraMitad: { letra: string; binario: string }[] = [];
 	let segundaMitad: { letra: string; binario: string }[] = [];
+	import { canales } from "$lib/clases/mediosTransmision";
+	import Canales from "$lib/clases/mediosTransmision/Canales.svelte";
+	console.log(canales);
 
 	$: {
 		mensajeBinario = mensaje.split('').map((char) => ({
@@ -14,29 +18,31 @@
 	}
 </script>
 
-<div class="text-second w-fit mx-10 mt-20  text-lg">
-	<h1 class="text-5xl mb-20 font-bold">
-		Los peligros ocultos de la transmisión de datos: <br /> Lo que hay que saber
-	</h1>
+<div class=" w-fit text-lg mr-10 mb-10">
+	<div class="flex p-10 gap-x-20 mt-10  rounded-lg bg-gradient-to-bl from-mediosTransmision-end-gradient to-mediosTransmision-start-gradient"
+  >
+    <img src="/medios-transmision/main.jpeg"
+    class="rounded-lg w-80 h-80" alt="">
+    <div class="mt-10 mr-10 text-white">
+      <h1 class="font-bold text-5xl" >Medios de Transmisión</h1>
+      <h1 class="text-3xl mt-10">
+        Conociendo las diferentes formas de transmitir información	
+      </h1>
+    </div>
+  </div>
 
-	<h3 class="text-4xl font-bold mt-10">
-		De texto a binario: cómo funciona la transmisión de datos
-	</h3>
-	<p class="mt-4">
-		Antes de sumergirnos en los peligros de la transmisión de datos, demos un paso atrás y
-		entendamos cómo se transmiten los datos en primer lugar. Cuando envías un correo electrónico o
-		subes un archivo, tu ordenador toma el texto y las imágenes y los convierte en código binario,
-		una serie de 1s y 0s que los ordenadores pueden entender. Este proceso se llama codificación.
-		Por ejemplo, la letra «A» se convierte en «01100001» en binario, mientras que la letra «B» se
-		convierte en «01100010». Este código binario se transmite a través de Internet, donde puede
-		descodificarse en el texto y las imágenes originales.
-	</p>
-	<br /><br />
-	<p>
-		Para esto utilizamos una tabla conocida en el mundo de la informática como la tabla ASCII, la
-		cual nos permite generar una traduccion directa entre letras y numeros. como se explica en este
-		video
-	</p>
+  <p class="mt-10">Una vez que ya sabemos como nuestros datos son protegidos mediante la encriptacion antes de ser enviados y al momento
+	de ser recibidos, es importante conocer como estos datos son codificados desde caracteres hasta bits para ser 
+	transmitidos.
+  </p>
+  <br>
+  <p>
+	Puesto que no hay una conversion directa entre un caracter y una secuencia de bits, a nivel internacional se han 
+	estandarizado varios esquemas como el <strong>ASCII</strong> o el <strong>UTF-8</strong>. Que logran facilitar este proceso
+	mediante un mapeo entre cada caracter de cualquier teclado y un numero decimal, ya con este numero simplemente se hace
+	una conversion de base 10 a base 2 para obtener la secuencia de bits.
+  </p> <br>
+  En este video se explica de manera sencilla como una computadora es capaz de interpretar cada uno de los caracteres
 
 	<div class="video-container w-full flex justify-center mt-10">
 		<iframe
@@ -52,13 +58,15 @@
 	</div>
 
 	<h4 class="text-xl font-bold mt-10">Laboratorio</h4>
-	<div class="flex justify-center w-full items-center gap-x-8">
-		<div>
-			<p>Por favor, ingresa un mensaje de no más de 6 letras:</p>
-			<input type="text" bind:value={mensaje} maxlength="6" />
+	<p>
+		En este laboratorio vas a poder escribir tu mensaje y se representara directamente en lenguaje binario. </p>
+	<div class="flex justify-center w-full items-center gap-x-8 my-10">
+		<div class="w-1/2 flex flex-col justify-center items-center">
+			<p class="mb-5">Por favor, ingresa un mensaje de no más de 6 letras</p>
+			<input type="text" bind:value={mensaje} maxlength="6" class="shadow-md border-2 py-1 px-4 rounded-lg" />
 		</div>
 
-		<div>
+		<div class="h-[90px]">
 			<h2>Aqui vas a observar tu mensaje original y su conversion a binario</h2>
 			<div class="flex gap-x-4 w-full justify-center">
 				<div>
@@ -79,86 +87,42 @@
 		</div>
 	</div>
 
-	<h3 class="text-2xl font-bold mt-10">Los peligros de la transmisión de datos</h3>
-
-	<p class="mt-4">
-		¡Hola! ¿Alguna vez te has parado a pensar cómo llegan tus datos del punto A al punto B? Ya sea
-		enviando un correo electrónico, subiendo un archivo o transmitiendo tu programa favorito, la
-		transmisión de datos es una parte esencial de nuestra vida digital. Pero, ¿sabía que este
-		proceso puede ser arriesgado?
-	</p>
-
-	<h2 class="text-2xl font-bold mt-10">El problema de los canales de transmisión</h2>
-
-	<p class=" mt-4">
-		Piense en los canales de transmisión como si fueran carreteras para sus datos. Al igual que los
-		coches pueden perderse o dañarse en la carretera, sus datos pueden perderse o corromperse
-		durante la transmisión. Y al igual que las carreteras tienen condiciones diferentes, los canales
-		de transmisión tienen retos diferentes.
-	</p>
+	
 
 	<h3 class="text-4xl font-bold my-10 ">Los peligros ocultos de la transmisión de datos</h3>
 	<p>
-		¡Hola! Alguna vez te has parado a pensar cómo llegan tus datos del punto A al punto B? Ya sea
-		enviando un correo electrónico, subiendo un archivo o transmitiendo tu programa favorito, la
-		transmisión de datos es una parte esencial de nuestras vidas digitales. Pero, ¿sabías que este
-		proceso puede ser un negocio arriesgado?
+		Aunque no lo parezca a simple vista, la transmisión de datos es un proceso complicado. En un mundo ideal
+		tus datos viajarían de un lugar a otro sin problemas, pero en la realidad hay muchos obstáculos en el camino.
+		Lo que hace que cierta información se pierda o se corrompa en el camino. Todo esto va a depender de multiples factores,
+		pero, uno que en la mayoria de los casos tiende a relucir es el de la <strong>Interferencia por el Medio</strong>.
+		Para esto, vamos a ver los distintos tipos de canales de transmisión y como estos pueden afectar la integridad de los datos.
 	</p>
-	<p></p>
-	<h4 class="text-2xl font-bold mt-5">El problema de los canales de transmisión</h4>
-	<p>
-		Piensa en los canales de transmisión como carreteras para tus datos. Al igual que los coches
-		pueden perderse o dañarse en la carretera, sus datos pueden perderse o corromperse durante la
-		transmisión. Y al igual que las diferentes carreteras tienen diferentes condiciones, los
-		diferentes canales de transmisión tienen diferentes retos.
-	</p>
+	
+	
 	<p></p>
 	<h4 class="text-2xl font-bold mt-5">Los distintos tipos de canales de transmisión</h4>
-    <ul class="flex flex-col gap-y-3">
-        <li class="mt-5">
-            Fibra óptica: Como autopistas superrápidas para tus datos, pero incluso éstas pueden congestionarse o 
-            dañarse.
-        </li>
-        <li>
-            Canales de radio: Como transmitir tus datos por radio, pero las interferencias y el ruido pueden
-            estropear la señal.
-        </li>
-        <li>
-            Canales por satélite: Como enviar tus datos en un viaje espacial, pero pueden perderse en el espacio 
-            o sufrir retrasos.
-        </li>
-        <li>
-            Canales por cable: Como las carreteras tradicionales para tus datos, pero también pueden atascarse 
-            o dañarse.
-        </li>
-    </ul>
-    <h4 class="text-2xl font-bold my-5">Que ocurre si algo sale mal</h4>
-    <p>
-        Cuando envias informacion, puede ser que parte de esta se pierda o se dañe. Un ejemplo de esto es el famoso
-        juego de <strong>el secretico</strong> en el cual se transmite un mensaje de persona a persona y al final se
-        compara el mensaje original con el mensaje final para ver si se mantuvo la integridad del mensaje. Normalmente
-        estos 2 difieren en alguna medida
-    </p><br><br>
-    <p>
-        En el caso de los canales de transmisión vistos estos errores no son tan notorios como en el ejemplo dado. A 
-        nivel informatico, los errores se pueden presentar en dos formas
-    </p>
-    <ul>
-        <ol>
-            Error de bits: Es como si en nuestro juego, el mensaje dijera: <strong>La manzana es <strong class="text-red">roja</strong> </strong>
-            pero, al final, el mensaje dice: <strong>La manzana es <strong class="text-green">verde</strong> </strong>
-        </ol>
-        <ol>
-            Perdida de paquetes de datos: Es como si en nuestro juego, el mensaje dijera: <strong>La manzana es roja y <strong class="text-red">sabe</strong> bien</strong>
-            pero wl mensaje final dice: <strong>La manzana es roja y bien</strong> como vemos una palabra se ha borrado
-        </ol>
-    </ul>
+	<div class="w-full flex justify-center items-center rounded-lg mt-10">
+        <Carousel.Root class=" w-72 h-80 text-center shadow-lg ">
+            <Carousel.Content>
+				{#each canales as { canal, descripcion, imagen }, i}
+					<Carousel.Item>
+						<Canales canal={canal} descripcion={descripcion} imagen={imagen} />
+					</Carousel.Item>
+				{/each}
+                
+              
+            </Carousel.Content>
+            <Carousel.Previous />
+            <Carousel.Next />
+          </Carousel.Root>
+    </div>
+    
+    
 
     <h4 class="text-2xl font-bold my-5">Cómo mantener tus datos a salvo</h4>
-    <p>
-        Los mecanismos modernos permiten que los datos se transmitan de manera segura y eficiente. Usando tecnicas 
-        como <strong>La Comprension de Datos</strong> que se encarga de reducir el tamaño de los datos a transmitir 
-        y asi reducir la probabilidad de cometer errores. Otras formas de reducir errores son <strong>La redundancia de 
-        datos</strong> que consiste en enviar la misma informacion.
+    <p class="">
+        En la siguiente seccion se ahondara mejor en los detalles para resguardar la integridad de nuestros datos al enviarlos
+		por cualquier medio de transmisión. Se estara conversando a profundidad de metodos de Deteccion por Paridad, el CRC.
+		Y Metodos de Correccion de Errores como el de Hamming. y la Compresion de Datos. entre otros.
     </p>
 </div>
