@@ -6,6 +6,8 @@
 	import CheckSumDialog from '$lib/clases/errores/CheckSumDialog.svelte';
 	import ParityDialog from '$lib/clases/errores/ParityDialog.svelte';
 	import CRCDialog from '$lib/clases/errores/CRCDialog.svelte';
+	import RepeticionDialog from '$lib/clases/errores/RepeticionDialog.svelte';
+	import HammingDialog from '$lib/clases/errores/HammingDialog.svelte';
 
 	const deteccion = [
 		{
@@ -24,11 +26,23 @@
 			content: 'crc'
 		}
 	];
+	const correcciones = [
+		{
+			titulo: 'Repeticion de Bits',
+			imagen: '/errores/repeticion.jpeg',
+			content: 'repeticion'
+		},
+		{
+			titulo: 'Codigo de Hamming',
+			imagen: '/errores/hamming.jpeg',
+			content: 'hamming'
+		}
+	];
 </script>
 
-<div class="mr-10 text-lg">
+<div class="text-lg">
 	<div
-		class="flex p-10 gap-x-20 my-10 rounded-lg bg-gradient-to-bl from-errores-end-gradient to-errores-start-gradient"
+		class="flex p-10 gap-x-20 mr-10 my-10 rounded-lg bg-gradient-to-bl from-errores-end-gradient to-errores-start-gradient"
 	>
 		<img src="/errores/main.jpeg" class="rounded-lg w-80 h-80" alt="" />
 		<div class="mt-10 mr-10 text-white">
@@ -91,40 +105,25 @@
 			</Dialog.Root>
 		{/each}
 	</div>
-	<ul class="mt-10 flex flex-col gap-y-5">
-		<li>
-			Codigo de Paridad:  Ejemplo: Si el mensaje es 1000, el bit de paridad seria 1,
-			ya que solo hay un 1 en el mensaje. Despues al recibir el mensaje se verifica si la paridad se
-			sigue cumpliendo, si no entonces se sabe que hubo un error.
-		</li>
-		<li>
-			Revision de Suma: Antes de enviar cualquier mensaje calculas la suma de los bits (contar el
-			numero de 1s) y lo agregas al mensaje, de manera que al recibir el mensaje se vuelve a
-			calcular la suma y se compara con la suma inicial
-		</li>
-		<li>
-			Verificacion por Redundancia Ciclica (CRC): Consiste en tomar nuestro mensaje original y hacer
-			una division binaria entre un polinomio escogido a detalle. El residuo de esta division lo
-			agregamos a nuestro mensaje y al recibirlo simplemente volvemos a hacer la division y
-			chequeamos si estos residuos son iguales
-		</li>
-	</ul>
 
 	<h2 class="my-10 font-bold text-xl">Correccion de Errores</h2>
 	Una vez que ya sabemos detectar errores, nos hace falta buscar mecanismos para corregirlos. Existen
-	multiples metodos para lograrlo, dentro de los mas comunes se encuentran:
+	multiples metodos para lograrlo, dentro de los mas comunes se encuentran
+	<div class="w-full mt-10 grid grid-cols-2 justify-center items-center mx-20">
+		{#each correcciones as correccion}
+			<Dialog.Root>
+				<Dialog.Trigger>
+					<Card titulo={correccion.titulo} />
+				</Dialog.Trigger>
+				<Dialog.Content class="sm:max-w-[700px] sm:max-h-[700px] overflow-y-auto">
+					{#if correccion.content === 'repeticion'}
+						<RepeticionDialog />
+					{:else if correccion.content === 'hamming'}
+						<HammingDialog />
+					{/if}
+				</Dialog.Content>
+			</Dialog.Root>
+		{/each}
+	</div>
 
-	<ul class="mt-10 flex flex-col gap-y-5">
-		<li>
-			Repeticion de Bits: Consiste en repetir el mensaje un numero impar de veces, de tal forma que
-			si un bit se altera se puede saber cual es el valor correcto. Ejemplo: Si el se envia el bit 1
-			3 veces de manera que se recibe 1 0 1 podemos decir que en la mayoria de los casos el bit
-			correcto es 1
-		</li>
-		<li>
-			Codigo de Hamming: Sirve tanto para detectar errores como corregirlos, en este caso se toman
-			unos bits de paridad para chequear si el mensaje ha sido alterado y en base a operaciones
-			matriciales correguir el mensaje
-		</li>
-	</ul>
 </div>
