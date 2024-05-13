@@ -21,7 +21,9 @@ const config = {
         red: "#EF6461",
         green: "#499167",
 		encriptacion: {
-			hover: "#D9AFD9"
+			hover: "#D9AFD9",
+			'start-gradient': '#8EC5FC',
+          	'end-gradient': '#d9afd9',
 		},
 		mediosTransmision: {
 			hover: "#80D0C7"
@@ -74,6 +76,7 @@ const config = {
 			fontFamily: {
 				sans: [...fontFamily.sans]
 			},
+			
 			
 		}
 	},

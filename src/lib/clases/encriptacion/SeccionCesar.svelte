@@ -1,6 +1,8 @@
 <script lang="ts">
 	import PaginacionCesar from "$lib/clases/encriptacion/PaginacionCesar.svelte";
     import { cesarCambios } from "$lib/clases/encriptacion/stores";
+	import * as Dialog from "$lib/components/ui/dialog";
+    import * as Table from "$lib/components/ui/table";
     let textoCesar = "";
     const cifrarCesar = (texto:string, desplazamiento:number) => {
         const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -15,20 +17,24 @@
     $: textoCifrado = cifrarCesar(textoCesar, $cesarCambios);
 </script>
 
+<Dialog.Title class="text-3xl">
+    Cifrado de Cesar
+</Dialog.Title>
+
 <div class="text-lg">
+    
+    <h2 class="text-xl font-bold mb-4">Breve Historia</h2>
     <p>
-        Este cifrado es uno de los mas simples de nuestros dias, para comprenderlo vamos a ver esta pequeña historia: <br>
-
-        En una escuela un grupo de estudiantes decidieron hacer una competencia en parejas, el objetivo era conseguir un 
-        regalo escondido por el profesor; alrededor de la escuela habian pistas que los llevarian al regalo, pero estas pistas
-        estaban encriptadas.
-        <br> <br>
-
-        Una de estas parejas, conocian de antemano el metodo de Cesar, pues lo habian aprendido anteriormente para el desafio.
-        Ellos al llegar a la primera pista se consiguieron con el mensaje: <strong>NOLOX SB K VKC OCMKVOBKC</strong>, los
-        muchachos saben que este cifrado se basa en mover el abecedario una cantidad de posiciones hacia la derecha, es decir,
-        si movemos el abecedario 3 posiciones hacia la derecha, la letra A se convierte en D, la B en E y asi sucesivamente .
-        Por lo que empiezan a mover el abecedario posicion por posicion hasta descifrar el mensaje.
+        El cifrado César debe su nombre al emperador romano Julio César, quien usaba este método para 
+        comunicarse con sus generales en medio de una batalla. Creando asi el primer cifrado conocido en la historia.
+    </p>
+    <h2 class="text-xl font-bold mb-4 mt-6">¿Cómo funciona?</h2>
+    <p>
+        Este cifrado es un metodo sencillo pero ingenioso que sustituye cada letra por otra en un número 
+        fijo de posiciones en el alfabeto. Funciona de la siguiente manera. <br>
+        Escojamos un numero determinado, por ejemplo el 4 <br>
+        Tome cada letra del mensaje original y la desplacemos hacia abajo en el alfabeto 4 posiciones.
+        Si la letra pasa de la «Z», se vuelve al principio del alfabeto.
     </p>
         <div class="w-full flex justify-center items-center">
             <img 
@@ -36,21 +42,47 @@
             src="https://www.101computing.net/wp/wp-content/uploads/Caesar_substition_cipher-2.png" 
             alt="Movimiento de Posiciones en el abecedario"/>
         </div>
-        
+        <h2 class="text-xl font-bold mb-4 mt-6">¡Vamos a cifrar!</h2>
+        <p>
+            Supongamos que queremos cifrar la palabra <strong>«HOLA»</strong>  utilizando un desplazandolo 4 posiciones. Asi quedaria nuestro mensaje cifrado: <br> <br>
+        </p>
+      
+            <Table.Root class="">
+                <Table.Header>
+                    <Table.Row>
+                      <Table.Head >Letra Original</Table.Head>
+                      <Table.Head>Desplazamiento a la derecha</Table.Head>
+                      <Table.Head>Letra Cifrada</Table.Head>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
+                    <Table.Row>
+                      <Table.Cell class="font-medium">H</Table.Cell>
+                      <Table.Cell>4</Table.Cell>
+                      <Table.Cell>L</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell class="font-medium">O</Table.Cell>
+                        <Table.Cell>4</Table.Cell>
+                        <Table.Cell>S</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell class="font-medium">L</Table.Cell>
+                        <Table.Cell>4</Table.Cell>
+                        <Table.Cell>P</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell class="font-medium">A</Table.Cell>
+                        <Table.Cell>4</Table.Cell>
+                        <Table.Cell>E</Table.Cell>
+                      </Table.Row>
+                  </Table.Body>
+            </Table.Root>
 
-    
+        <p class="mt-5">Por lo que nuestro mensaje cifrado queda como <strong>LSPE</strong> </p>
+        <br>
+        <p>Ahora en el caso de que </p>
 
-    <p>
-        Para poder descifrarlo, los muchachos deben mover el abecedario hacia la izquierda, por lo que sus opciones son: <br> <br>
-    </p>
-        <ul class="mb-5">
-            <li>1 posicion: <strong>Stqtc xg p aph thrpatgph</strong> </li>
-            <li>2 posiciones: <strong>Rspsb wf o zog sgqozsfog</strong> </li>
-            <li>.</li>
-            <li>.</li>
-            <li>.</li>
-            <li>10 posiciones: <strong>Deben ir a las escaleras</strong> </li>
-        </ul>
     
 
     <div class="video-container w-full flex justify-center">

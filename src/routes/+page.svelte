@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CardClases from '$lib/main-page/componentes/CardClases.svelte';
 	import { clases } from '$lib/main-page/utils/clases';
+	
 </script>
 
 
@@ -17,6 +18,7 @@
 		<div class=" grid grid-cols-3 gap-y-10 gap-x-20 w-full">
 			{#each clases as clase}
 				<CardClases
+					fade={clase.fade}
 					enlace={clase.enlace}
 					titulo={clase.titulo}
 					enlaceImagen={clase.enlaceImagen}

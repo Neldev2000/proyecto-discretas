@@ -2,16 +2,45 @@
 	import SeccionCesar from "$lib/clases/encriptacion/SeccionCesar.svelte";
     import SeccionVigenere from "$lib/clases/encriptacion/SeccionVigenere.svelte";
     import SeccionRSA from "$lib/clases/encriptacion/SeccionRSA.svelte";
-    import * as Accordion from "$lib/components/ui/accordion/index.js";
-	
+ 
+    import * as Dialog from "$lib/components/ui/dialog";
+
+	import CardEncryption from "$lib/clases/encriptacion/CardEncryption.svelte";
+   
+  const methods = [
+    {
+      titulo: "Cifrado de Cesar",
+      imagen: "/encriptacion/cesar.jpeg",
+      content: "cesar"
+    }, {
+      titulo: "Cifrado de Vigenère",
+      imagen: "/encriptacion/vigenere.jpeg",
+      content: "vigenere"
+    },
+    {
+      titulo: "Cifrado RSA",
+      imagen: "/encriptacion/rsa.jpeg",
+      content: "rsa"
+    }
+  ]
+
 </script>
 
-<div class="mt-10 mx-10 text-second w-full text-lg">
-	<h1 class="font-bold text-5xl">Encriptacion</h1>
-	<h1 class="text-3xl mt-10">
-		En esta seccion aprenderas sobre los diferentes metodos de encriptacion
-	</h1>
-	<h1 class="font-bold text-4xl mt-20">Temas</h1>
+<div class=" w-full text-lg">
+
+  <div class="flex p-10 gap-x-20 mt-10 mr-10  rounded-lg bg-gradient-to-bl from-encriptacion-end-gradient to-encriptacion-start-gradient"
+  >
+    <img src="/encriptacion/main.jpeg"
+    class="rounded-lg w-80 h-80" alt="">
+    <div class="mt-10 mr-10">
+      <h1 class="font-bold text-5xl" >Encriptacion de Mensajes</h1>
+      <h1 class="text-3xl mt-10">
+        Descubriendo formas de proteger nuestra información
+      </h1>
+    </div>
+  </div>
+
+	
 
 	<div class="mt-10 gap-x-40 mr-20">
 		<p>
@@ -22,33 +51,40 @@
 			La necesidad del ser humano de resguardar informacion importante para que otras personas no la
 			vean llevo a Militares, Matematicos e Ingenieros a romper las barreras del lenguaje comun y crear
 			mensajes ocultos de tal manera que solo un selecto grupo con conocimiento del como se estructuran
-			esos mensajes puedan interpretarlos
+			esos mensajes puedan interpretarlos.
 			<br /><br />
-			Asi fue el caso de Julio Cesar, quien al estar en constantes campañas militares necesitaba comunicarse 
-            con sus generales a kilometros de distancia por lo que empleo un metodo de encriptacion novedoso conocido
-            hoy en dia como el metodo de Cesar.
+			Es por eso que en esta seccion aprenderemos sobre los algoritmos de encriptacion mas conocidos, llendo
+      desde el primer mecanismo de encriptado conocido como Cifrado de Cesar, hasta el mas reciente y utilizando
+      hoy en dia como lo es el Cifrado RSA.
 		</p>
 
-        <Accordion.Root class="w-full sm:max-w-[90%]">
-                <Accordion.Item value="cesar">
-                    <Accordion.Trigger class="font-bold text-3xl my-10">Cifrado de Cesar</Accordion.Trigger>
-                    <Accordion.Content
-                      ><SeccionCesar />
-                    </Accordion.Content>
-                </Accordion.Item>
-                <Accordion.Item value="vigenere">
-                    <Accordion.Trigger class="font-bold text-3xl my-10">Cifrado de Vigenère</Accordion.Trigger>
-                    <Accordion.Content
-                      ><SeccionVigenere />
-                    </Accordion.Content>
-                </Accordion.Item>
-                <Accordion.Item value="rsa">
-                    <Accordion.Trigger class="font-bold text-3xl my-10">Cifrado RSA</Accordion.Trigger>
-                    <Accordion.Content
-                      ><SeccionRSA />
-                    </Accordion.Content>
-                </Accordion.Item>
-        </Accordion.Root>
+    <h2 class="w-full flex justify-center font-bold text-3xl mt-20">Algoritmos de Cifrado</h2>
+
+    <div class="mx-20 my-10 grid grid-cols-3 justify-center w-full">
+      {#each methods as method}
+      <Dialog.Root>
+        <Dialog.Trigger class="w-fit"> <CardEncryption titulo={method.titulo} imagen={method.imagen} /> </Dialog.Trigger>
+        <Dialog.Content class="sm:max-w-4xl sm:max-h-[700px] overflow-y-auto">
+          {#if method.content === "cesar"}
+            <SeccionCesar />
+          {/if}
+          {#if method.content === "vigenere"}
+            <SeccionVigenere />
+          {/if}
+          {#if method.content === "rsa"}
+            <SeccionRSA />
+            
+          {/if}
+        </Dialog.Content>
+      </Dialog.Root>
+        
+      {/each}
+      
+
+      
+
+    </div>
+
       
         
 	</div>
