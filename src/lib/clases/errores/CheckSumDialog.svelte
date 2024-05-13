@@ -41,9 +41,45 @@
         ¿Cómo funciona?
     </div>
     <p>
-        Una vez tanto el el emisor como el receptor acuerdan esta paridad, y que el mensaje fue recibido,
-        el receptor debe simplemente verificar si estar paridad se sigue manteniendo. En el caso de que no,
-        se detectaria el error 
+        Al tener la suma de los bits nos da una forma ciertamente certera de evaluar si alguna serie de estos cambio;
+        al recibir el mensaje con la suma agregada, simplemente debemos recalcular la suma de estos numeros de nuevo
+        y verificar que sea igual a este valor, en caso de que no coincidan directamente se detecta el error
+    </p>
+
+    <div class="text-xl font-bold my-10"> Ejemplo </div>
+    <Table.Root>
+        <Table.Header>
+            <Table.Row>
+                <Table.Head>Mensaje Original</Table.Head>
+				<Table.Head>Mensaje Recibido</Table.Head>
+                <Table.Head>Suma Original</Table.Head>
+				<Table.Head>Suma al Recibir</Table.Head>
+				<Table.Head>Se Detecto un error</Table.Head>
+			</Table.Row>
+        </Table.Header>
+        <Table.Body>
+            <Table.Row>
+                <Table.Cell>10010010</Table.Cell>
+                <Table.Cell>10010010</Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell> <Icon icon="clarity:error-solid" class="text-2xl text-red"/>  </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+                <Table.Cell>11110100</Table.Cell>
+                <Table.Cell>11<strong>0</strong>10100</Table.Cell>
+                <Table.Cell>4</Table.Cell>
+                <Table.Cell>3</Table.Cell>
+                <Table.Cell><Icon icon="lets-icons:check-fill" class="text-2xl text-green"/></Table.Cell>
+            </Table.Row>
+        </Table.Body>
+    </Table.Root>
+    <div class="text-xl font-bold mt-10 mb-5"> Detalles a considear </div>
+    <p>
+        Este algoritmo de deteccion de errores proporcionar una mayor precision respecto a la Validacion de Paridad,
+        mas sin embargo hay casos donde en algoritmo falla. Supongamos que tenemos el mensaje original <strong>1001</strong>, 
+        y al recibir, este se convierte en <strong>0110</strong> la suma total no cambiar pero el mensaje es completamente
+        distinto. Es por eso que en la actualidad se utiliza el algoritmo <strong>CRC</strong> en los casos practicos.
     </p>
 
 </div>
