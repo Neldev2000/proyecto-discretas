@@ -3,63 +3,124 @@
 	import VIGENERE_DESCIFRADO from '$lib/clases/encriptacion/IMAGES/vigenere_descifrado.png';
 	import VigenereMensajes from './VigenereMensajes.svelte';
 
+	import * as Dialog from "$lib/components/ui/dialog";
+    import * as Table from "$lib/components/ui/table";
+
 	let mensaje = '';
 	let llave = '';
 </script>
 
+<Dialog.Title class="text-3xl">
+    Cifrado de Vigenere
+</Dialog.Title>
+
 <div class="text-lg">
+	<h2 class="text-xl font-bold mb-4">Breve Historia</h2>
 	<p>
-		Durante anios las personas utilizaron el metodo de Cesar o variantes de este para encriptar
-		cualquier tipo de mensajes, pero a la par de su uso, la gente empezo a encontrar formas de
-		descifrarlo. Y es que como vimos, solo hace falta probar 26 formas de codificacion para
-		descrifrar el mensaje real.
-		<br /> <br />
-		Es por esto que Blaise de Vigenere, un criptografo frances, decidio mejorar el metodo de Cesar, creando
-		un algoritmo que consiste en tener una <strong>Llave secreta</strong> que nos ayudara a cifrar y
-		descifrar el mensaje. Vigenere adopta la idea de Cesar de mover las letras del abecedario, pero
-		en lugar de moverlas una cantidad fija para todas las letras, este las mueve segun la posicion
-		de la letra en la llave secreta.
-		<br /> <br />
-	</p>
-	<p class="font-bold text-2xl mb-10">Ejemplo</p>
-	<div class="w-full flex justify-center mb-10">
-		<img src={VIGENERE_EJEMPLO} alt="" class="w-1/2" />
-	</div>
 
-	<p>
-		Como vemos en la imagen, el mensaje que queremos proteger es <strong>COMO ESTAS</strong> y la
-		llave para codificarlo es <strong>BIEN</strong>, como esta no tiene la misma longitud que el
-		mensaje, la repetimos hasta que tenga la misma longitud.
-		<br /> <br />
-		Luego lo que hacemos es mover cada letra de nuestro mensaje original segun la posicion de la letra
-		en la llave como si fuese el metodo Cesar y de ahi obtenemos nuestro mensaje cifrado.
+		Conforme la historia de la criptografia avanzaba, las personas se dieron cuenta de que el metodo Cesar
+		era muy facil de romper, es por eso que Blaise de Vigenere creo un revolucionario cifrado que lleva su nombre. 
+
+		
 	</p>
+
+	<h2 class="text-xl font-bold mb-4 mt-6">¿Cómo funciona?</h2>
+	<p>
+		Vigenere al desarrollar su metodo introduce el concepto de una llave secreta, que es una palabra clave con la 
+		cual determinamos la palabra cifrada. La idea es sencilla, si en el metodo de Cesar desplazabamos cada letra un
+		numero fijo de posiciones, en el metodo de Vigenere desplazamos cada letra segun la posicion de la letra en la llave.
+		Ademas, si la llave es mas corta que el mensaje, la repetimos hasta que tenga la misma longitud.
+	</p>
+
+	<h2 class="text-xl font-bold mb-4 mt-6">¡Vamos a cifrar!</h2>
+	<p>
+		Ahora supongamos que queremos cifrar el mensaje <strong>COMOESTAS</strong> utilizando la llave <strong>BIEN</strong>.
+		Asi quedaria nuestro mensaje cifrado:
+	</p>
+	<Table.Root>
+		<Table.Header>
+			<Table.Row>
+				<Table.Head>Letra Original</Table.Head>
+				<Table.Head>Letra de la Llave</Table.Head>
+				<Table.Head>Desplazamientos a la derecha</Table.Head>
+				<Table.Head>Letra Cifrada</Table.Head>
+			</Table.Row>
+		</Table.Header>
+		<Table.Body>
+			<Table.Row>
+				<Table.Cell class="font-medium">C</Table.Cell>
+				<Table.Cell>B</Table.Cell>
+				<Table.Cell>1</Table.Cell>
+				<Table.Cell>D</Table.Cell>
+			</Table.Row>
+			<Table.Row>
+				<Table.Cell class="font-medium">O</Table.Cell>
+				<Table.Cell>I</Table.Cell>
+				<Table.Cell>8</Table.Cell>
+				<Table.Cell>W</Table.Cell>
+			</Table.Row>
+			<Table.Row>
+				<Table.Cell class="font-medium">M</Table.Cell>
+				<Table.Cell>E</Table.Cell>
+				<Table.Cell>4</Table.Cell>
+				<Table.Cell>Q</Table.Cell>
+			</Table.Row>
+			<Table.Row>
+				<Table.Cell class="font-medium">O</Table.Cell>
+				<Table.Cell>N</Table.Cell>
+				<Table.Cell>14</Table.Cell>
+				<Table.Cell>B</Table.Cell>
+			</Table.Row>
+			
+			<Table.Row>
+				<Table.Cell class="font-medium">E</Table.Cell>
+				<Table.Cell>B</Table.Cell>
+				<Table.Cell>1</Table.Cell>
+				<Table.Cell>F</Table.Cell>
+			</Table.Row>
+			<Table.Row>
+				<Table.Cell class="font-medium">S</Table.Cell>
+				<Table.Cell>I</Table.Cell>
+				<Table.Cell>8</Table.Cell>
+				<Table.Cell>A</Table.Cell>
+			</Table.Row>
+			<Table.Row>
+				<Table.Cell class="font-medium">T</Table.Cell>
+				<Table.Cell>E</Table.Cell>
+				<Table.Cell>4</Table.Cell>
+				<Table.Cell>X</Table.Cell>
+			</Table.Row>
+			<Table.Row>
+				<Table.Cell class="font-medium">A</Table.Cell>
+				<Table.Cell>N</Table.Cell>
+				<Table.Cell>14</Table.Cell>
+				<Table.Cell>N</Table.Cell>
+			</Table.Row>
+			<Table.Row>
+				<Table.Cell class="font-medium">S</Table.Cell>
+				<Table.Cell>B</Table.Cell>
+				<Table.Cell>1</Table.Cell>
+				<Table.Cell>T</Table.Cell>
+			</Table.Row>
+			
+			
+		</Table.Body>
+	
+	</Table.Root>
+
+	<p class="mt-5">Por lo que nuestro mensaje cifrado queda como <strong>DWQBFAXNT</strong></p>
 	<br><br>
-	<p>
-		Para lograr descifrar ese mensaje complejo teniendo la llave, normalmente se hace uso de una 
-		<strong>Tabula Recta</strong> que es una tabla donde salen todas las combinaciones posibles para
-		cifrar y descifrar un mensaje.
-		<br>
-		Nosotros vamos a aplicar un proceso inverso, si antes para cifrar un mensaje necesitabamos mover
-		las en <strong>sentido horario</strong>, ahora vamos a moverlas en sentido antihorario para descifrar el mensaje.
-		Es decir, Si antes pasabamos de <strong> A a B, de B a C, ...</strong> Ahora lo haremos al reves
-	</p>
-	<div class="w-full flex justify-center mb-10">
-		<img src={VIGENERE_DESCIFRADO} alt="" class="w-1/2" />
-	</div>
-
-	<p>
-		Como vemos, para poder descifrar el mensaje teniendo la llave simplemente tenemos que mover hacia atras
-		las cantidades que nos indica la llave. Asi para la llave <strong>BIEN</strong> movemos 1 posicion, 8 posiciones
-		4 posiciones y 13 posiciones respectivamente.
-	</p>
-
-	<p class="font-bold text-2xl my-10">Video Explicativo</p>
-	<div class="video-container w-full flex justify-center">
+	Ahora el proceso de descifrado es muy similar, simplemente debemos hacer un desplazamiento a la izquierda
+	conocienddo nuestra llave secreta el mismo punto de veces que lo hicimos para cifrarlo.
+	<br>
+	A continuacion se muestra un video detallado del metodo de Vigenere
+	
+	
+	<div class="video-container w-full flex justify-center mt-10">
 		<iframe
 			width="560"
 			height="315"
-			class="rounded-lg w-1/2"
+			class="rounded-lg w-2/3 shadow-lg"
 			src="https://www.youtube.com/embed/aHSt_lzRIxw"
 			frameborder="0"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -68,19 +129,19 @@
 		></iframe>
 	</div>
 
-	<h1 class="font-bold text-2xl my-10">Laboratorio</h1>
+	<h1 class="font-bold text-xl my-10">Laboratorio</h1>
 	<p>Ahora vamos a poner en practica los conocimientos sobre el metodo de Vigenere</p>
 	<div class="flex justify-between items-center w-full mt-10 mb-4 gap-x-10">
 		<div class="w-1/2 flex flex-col font-bold gap-y-5 h-[400px] flex-shrink-0">
 			Aqui puedes ingresar tu llave secreta y el mensaje que quieres cifrar
 
 			<label class="text-sm" for="llave-secreta">Llave Secreta</label>
-			<input type="text" class="border-2 border-black bg-blue p-2 rounded-lg" bind:value={llave} />
+			<input type="text" class="p-2 rounded-lg shadow-md border-2 bg-white" bind:value={llave} />
 
 			<label class="text-sm" for="llave-secreta">Mensaje a cifrar</label>
 			<input
 				type="text"
-				class="border-2 border-black bg-blue p-2 rounded-lg"
+				class="p-2 rounded-lg shadow-md border-2 bg-white"
 				bind:value={mensaje}
 			/>
 		</div>

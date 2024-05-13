@@ -14,19 +14,19 @@
 <div class="flex flex-col gap-y-1 justify-center items-center">
 	<div class="">
 		<p>
-			Aqui veras el proceso para generar el mensaje cifrado, el texto en <strong class="text-green"
-				>Verde</strong
+			Aqui veras el proceso para generar el mensaje cifrado, el texto en <strong class="text-encriptacion-hover"
+				>Morado</strong
 			>
-			es tu mensaje original, el texto en <strong class="text-red">Rojo</strong> es tu llave secreta
+			es tu mensaje original, el texto en <strong class="text-mediosTransmision-hover">Verde</strong> es tu llave secreta
 			y el texto en
-			<strong class="text-blue">Azul</strong> es tu mensaje cifrado.
+			<strong class="text-errores-hover">Naranja</strong> es tu mensaje cifrado.
 		</p>
 	</div>
 	{#if llave.length > 0}
 		<div class="flex justify-center items-center">
 			{#each Array.from(mensaje.toUpperCase()) as letra}
 				<div
-					class=" p-4 border-2 bg-green text-white font-bold rounded-lg border-black mx-1 w-6 h-6 flex justify-center items-center"
+					class=" p-4 border-2 bg-encriptacion-hover font-bold rounded-lg border-black mx-1 w-6 h-6 flex justify-center items-center"
 				>
 					{letra}
 				</div>
@@ -40,7 +40,7 @@
 		<div class="flex justify-center items-center">
 			{#each Array.from(vigenereKey) as letra}
 				<div
-					class="p-4 border-2 rounded-lg bg-red text-white font-bold border-black mx-1 w-6 h-6 flex justify-center items-center"
+					class="p-4 border-2 rounded-lg bg-mediosTransmision-hover  font-bold border-black mx-1 w-6 h-6 flex justify-center items-center"
 				>
 					{letra}
 				</div>
@@ -54,7 +54,7 @@
 		<div class="flex justify-center items-center">
 			{#each Array.from(cifrado) as letra}
 				<div
-					class="p-4 border-2 rounded-lg bg-blue text-white font-bold border-black mx-1 w-6 h-6 flex justify-center items-center"
+					class="p-4 border-2 rounded-lg bg-errores-hover  font-bold border-black mx-1 w-6 h-6 flex justify-center items-center"
 				>
 					{letra}
 				</div>
