@@ -13,7 +13,7 @@
 <!-- Dynamic Pagination -->
 <div class="flex space-x-2 mt-4">
   {#each Array.from({length: 5}, (_, i) => alphabet[($cesarCambios - 2 + i + alphabet.length) % alphabet.length]) as letter, i (letter)}
-    <button  transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'x' }} class:bg-blue={alphabet[$cesarCambios] === letter} class:font-bold={alphabet[$cesarCambios] === letter} class="px-3 py-2 border rounded" on:click={() => setPage(($cesarCambios - 2 + i + alphabet.length) % alphabet.length)}>{letter}</button>
+    <button  transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'x' }} class:bg-encriptacion-start-gradient={alphabet[$cesarCambios] === letter}  class:font-bold={alphabet[$cesarCambios] === letter} class="px-3 py-2 border rounded" on:click={() => setPage(($cesarCambios - 2 + i + alphabet.length) % alphabet.length)}>{letter}</button>
   {/each}
 </div>
 

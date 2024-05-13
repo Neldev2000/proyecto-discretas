@@ -81,15 +81,55 @@
 
         <p class="mt-5">Por lo que nuestro mensaje cifrado queda como <strong>LSPE</strong> </p>
         <br>
-        <p>Ahora en el caso de que </p>
-
-    
+        <p>Ahora en el caso de que queramos revertir el mensaje simplemente debemos hacer un desplazamiento a la 
+            izquierda el mismo numero de veces que lo hicimos para cifrarlo. Nuestro ejemplo quedaria asi: <br> <br>
+        </p>
+        <Table.Root class="">
+            <Table.Header>
+                <Table.Row>
+                  <Table.Head >Letra Cifrada</Table.Head>
+                  <Table.Head>Desplazamiento a la izquierda</Table.Head>
+                  <Table.Head>Letra Original</Table.Head>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell class="font-medium">L</Table.Cell>
+                  <Table.Cell>4</Table.Cell>
+                  <Table.Cell>H</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                    <Table.Cell class="font-medium">S</Table.Cell>
+                    <Table.Cell>4</Table.Cell>
+                    <Table.Cell>O</Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell class="font-medium">P</Table.Cell>
+                    <Table.Cell>4</Table.Cell>
+                    <Table.Cell>L</Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell class="font-medium">E</Table.Cell>
+                    <Table.Cell>4</Table.Cell>
+                    <Table.Cell>A</Table.Cell>
+                  </Table.Row>
+              </Table.Body>
+        </Table.Root>
+        
+        <p class="mt-5">
+            Como vemos, el descifrar este mensaje es relativamente sencillo, incluso para personas que puedan
+            interceptar nuestros mensajes, solo deberian hacer un maximo de 26 desplazamientos para poder descifrarlo. <br>
+            Es por eso que este metodo es considerado como uno de los mas inseguros en la actualidad. y sirve como metodo
+            educativo para comprender los cifrados mas complejos.
+        </p>
+        <br>
+        <p class="my-5"> En el siguiente video se explica el cifrado Cesar con mayor detalle </p>
 
     <div class="video-container w-full flex justify-center">
         <iframe
             width="560"
             height="315"
-            class="rounded-lg w-1/2"
+            class="rounded-lg w-2/3 shadow-lg"
             src="https://www.youtube.com/embed/ttqI7EFW3Mk"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -100,19 +140,19 @@
 
     <h1 class="font-bold text-2xl my-10">Laboratorio</h1>
 
-    <p>En este Laboratorio podras armar tus propios mensajes usando el cifrado de Cesar</p>
+    <p>Habiendo visto todo, ahora es nuestro turno de escribir nuestros propios mensajes cifrados</p>
 
     <div class="w-full flex justify-center gap-x-40 items-center mb-20 p-5">
         <div class="flex flex-col gap-y-5 w-1/2 justify-center items-center">
-            <h1 class="font-bold">
-                Puedes seleccionar la cantidad de posiciones que deseas mover el abecedario (la lista de abajo es de referencia para los Movimiento)
+            <h1 class="font-medium">
+                Seleccion los desplazamientos que deseas para cifrar tu mensaje
             </h1>
             <PaginacionCesar/>
         </div>
         <div class="flex flex-col gap-y-5 w-1/2 justify-center items-center">
-            <p class="font-bold">Prueba escribiendo un mensaje y se encriptara de inmediato</p>
-            <h1>{textoCifrado}</h1>
-            <input placeholder="Escribe tu mensaje secreto" type="text" bind:value={textoCesar} class="bg-blue font-bold py-2 px-4 rounded-lg shadow-md border-2 border-second" />
+            <p class="font-medium">Prueba escribiendo un mensaje y se encriptara de inmediato</p>
+            <h1 class="h-10">{textoCifrado}</h1>
+            <input placeholder="Escribe tu mensaje secreto" type="text" bind:value={textoCesar} class="bg-white font-bold py-2 px-4 rounded-lg shadow-md border-2 " />
         </div>
 
     </div>
