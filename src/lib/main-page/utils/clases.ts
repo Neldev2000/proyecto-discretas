@@ -5,6 +5,7 @@ export const clases = [
         titulo: "Encriptacion de Mensajes",
         enlaceImagen: "/encriptacion/main.jpeg",
         hoverColor: "hover:shadow-encriptacion-hover",
+        colorSideBar: "bg-gradient-to-bl from-encriptacion-end-gradient to-encriptacion-start-gradient",
         descripcion : "Descubriendo formas de proteger nuestra información"
     }, {
         fade: "mediosTransmision" ,
@@ -12,6 +13,7 @@ export const clases = [
         titulo: "Medios de Transmisión",
         enlaceImagen: "/medios-transmision/main.jpeg",
         hoverColor: "hover:shadow-mediosTransmision-hover",
+        colorSideBar: "bg-gradient-to-bl from-mediosTransmision-end-gradient to-mediosTransmision-start-gradient text-white",
         descripcion : "Conociendo las diferentes formas de transmitir información"
     },
     {
@@ -20,6 +22,7 @@ export const clases = [
         titulo: "Deteccion y Correccion de Errores",
         enlaceImagen: "/errores/main.jpeg",
         hoverColor: "hover:shadow-errores-hover",
+        colorSideBar: "bg-gradient-to-bl from-errores-end-gradient to-errores-start-gradient  text-white  ",
         descripcion : "Encontrando la manera de correguir nuestros errores"
     } ,
     {
@@ -28,6 +31,7 @@ export const clases = [
         titulo: "Almacenamiento de Datos",
         enlaceImagen: "/almacenamiento-datos/main.jpeg",
         hoverColor: "hover:shadow-almacenamientoDatos-hover ",
+        colorSideBar: "bg-gradient-to-bl from-almacenamientoDatos-end-gradient to-almacenamientoDatos-start-gradient text-white",
         descripcion : "Guardando nuestra información de manera segura"
     }
 ]
