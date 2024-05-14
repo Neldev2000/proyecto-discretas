@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as RadioGroup from '$lib/components/ui/radio-group/index.ts';
-	import { Label } from '$lib/components/ui/label/index.ts';
+	import * as RadioGroup from '$lib/components/ui/radio-group/index.js';
+	import { Label } from '$lib/components/ui/label/index.js';
     import * as Accordion from "$lib/components/ui/accordion/index.js";
 
 	let preguntaCesar = '';

@@ -8,6 +8,7 @@
 	import CRCDialog from '$lib/clases/errores/CRCDialog.svelte';
 	import RepeticionDialog from '$lib/clases/errores/RepeticionDialog.svelte';
 	import HammingDialog from '$lib/clases/errores/HammingDialog.svelte';
+	import Preguntas from '$lib/clases/errores/Preguntas.svelte';
 
 	const deteccion = [
 		{
@@ -125,5 +126,7 @@
 			</Dialog.Root>
 		{/each}
 	</div>
+
+	<Preguntas />
 
 </div>
