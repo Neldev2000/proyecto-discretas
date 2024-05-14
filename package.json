@@ -21,6 +21,7 @@
 		"@types/katex": "^0.16.7",
 		"@typescript-eslint/eslint-plugin": "^7.0.0",
 		"@typescript-eslint/parser": "^7.0.0",
+		"@zerodevx/svelte-toast": "^0.9.5",
 		"autoprefixer": "^10.4.19",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -43,6 +44,9 @@
 		"embla-carousel-svelte": "^8.0.4",
 		"katex": "^0.16.10",
 		"lucide-svelte": "^0.378.0",
+		"mode-watcher": "^0.3.0",
+		"svelte-sonner": "^0.3.24",
+		"svelte-toastify": "^0.0.27",
 		"tailwind-merge": "^2.3.0",
 		"tailwind-variants": "^0.2.1"
 	}

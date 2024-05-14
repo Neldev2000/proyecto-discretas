@@ -6,6 +6,7 @@
     import * as Dialog from "$lib/components/ui/dialog";
 
 	import CardEncryption from "$lib/clases/encriptacion/CardEncryption.svelte";
+	import Preguntas from "$lib/clases/encriptacion/Preguntas.svelte";
    
   const methods = [
     {
@@ -88,4 +89,6 @@
       
         
 	</div>
+
+  <Preguntas />
 </div>
