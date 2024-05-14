@@ -1,62 +1,101 @@
-<div>
+<script>
+	import Tipos from '$lib/clases/almacenamiento/Tipos.svelte';
+	import * as Carousel from '$lib/components/ui/carousel';
+	const data = [
+		{
+			title: 'Almacenamiento en Disco Duro',
+			description:
+				'Es el metodo mas comun de almacenamiento y mas lento por sus tiempos de lectura y escritura en discos mageniticos',
+			imagen: '/almacenamiento-datos/hdd.jpeg'
+		},
+		{
+			title: 'Almacenamiento en Memoria Flash',
+			description:
+				'Es un metodo mas moderno de almacenamiento, con una alta velocidad de lectura y escritura en memorias.',
+			imagen: '/almacenamiento-datos/flash.jpeg'
+		},
+		{
+			title: 'Almacenamiento en la Nube',
+			description:
+				'Es el metodo mas flexible, pues guardamos los datos en otras computadoras en el internet.',
+			imagen: '/almacenamiento-datos/cloud.jpeg'
+		}
+	];
+	const consideraciones = [
+		{
+			title: 'Redundancia',
+			description: 'Almacenar varias veces la informacion para tener un respaldo de esta.'
+		},
+		{
+			title: 'Codigos de Correccion de Errores',
+			description:
+				'Como observamos anteriormente, antes de manipular cualquier dato es importante cerciorarse de que estos no esten corruptos.'
+		},
+		{
+			title: 'Validacion de Datos',
+			description:
+				'Antes de procesar cualquier dato, es importante validar que estos sean correctos. En base a formatos, valores, entre otros'
+		}
+	];
+</script>
 
-    <h1>
-        Guardando los Datos: Una Guia para almacenar datos sin perder la cabeza
-    </h1>
-    <p>
-        En la clase anterior vimos como los datos pueden ser transmitidos de un punto a otro, pero una vez que llegan a su destino
-        es importante tener un lugar donde almacenarlos. En esta clase vamos a ver los diferentes metodos de almacenamiento de datos
-        y como estos pueden ser utilizados para guardar informacion de manera segura y eficiente.
-    </p>
+<div class="text-lg mb-20 mr-10">
+	<div
+		class="flex p-10 gap-x-20 my-10 rounded-lg bg-gradient-to-bl from-almacenamientoDatos-end-gradient to-almacenamientoDatos-start-gradient"
+	>
+		<img src="/almacenamiento-datos/main.jpeg" class="rounded-lg w-80 h-80" alt="" />
+		<div class="mt-10 mr-10 text-white">
+			<h1 class="font-bold text-5xl">Almacenamiento de Datos</h1>
+			<h1 class="text-3xl mt-10">Guardando nuestra información de manera segura</h1>
+		</div>
+	</div>
 
-    <h2>Tipos de almacenamiento</h2>
-    Para poder guardar los datos de manera segura y eficiente, existen multiples herramientas que su uso va a depender
-    de las necesidades especificas. Mas sin embargo, los metodos mas comunes de almacenamiento son los siguientes:
-    <ul>
-        <li>
-            Almacenamiento en Disco Duro: Es el metodo mas comun de almacenamiento, consiste en guardar los datos en un disco magnetico
-            que puede ser leido y escrito por la computadora. Este metodo es muy eficiente y economico, pero tambien es el mas lento.
-        </li>
-        <li>
-            Almacenamiento en Memoria Flash: Es un metodo mas moderno de almacenamiento, consiste en guardar los datos en una memoria
-            flash que puede ser leida y escrita por la computadora. Este metodo es mas rapido que el disco duro, pero tambien es mas caro.
-        </li>
-        <li>
-            Almacenamiento en la Nube: Es un metodo de almacenamiento que consiste en guardar los datos en servidores remotos que pueden
-            ser accedidos a traves de internet. Este metodo es muy conveniente ya que los datos pueden ser accedidos desde cualquier lugar,
-            pero tambien es mas vulnerable a ataques ciberneticos.
-        </li>
-    </ul>
+	<p>
+		En la clase anterior vimos como los datos pueden ser transmitidos de un punto a otro, pero una
+		vez que llegan a su destino es importante tener un lugar donde almacenarlos. En esta clase vamos
+		a ver los diferentes metodos de almacenamiento de datos y como estos pueden ser utilizados para
+		guardar informacion de manera segura y eficiente.
+	</p>
 
-    <h2>Mejores Practicas para almacenar datos</h2>
-    Todos los metodos anteriores utilizan las siguientes caracteristicas para garantizar la seguridad y eficiencia de los datos:
-    
-    <ul>
-        <li>
-            Redundancia: Almacena los datos en multiples ubicaciones para garantizar la disponibilidad y prevenir la perdida de datos
-            debido a fallas de hardware u otros desastres. Utiliza RAID (Redundant Array of Independent Disks) o almacenamiento
-            en espejo para duplicar los datos en multiples discos, al igual que usamos bits de paridad para detectar errores en la Teoria de Codificacion.
-        </li>
-        <li>
-            Codigos de Correccion de Errores: Como observamos anteriormente, antes de manipular cualquier dato es importante
-            cerciorarse de que estos no esten corruptos.
-        </li>
-        <li>
-            Validacion de Datos: Valida los datos antes de almacenarlos para garantizar su integridad y consistencia, al igual que usamos
-            sumas de verificacion para detectar errores en la transmision de datos.
-        </li>
-        <li>
-            Encriptacion de Datos: Como vimos, el cifrar los datos es una caracteristica primordial para salvaguardar nuestra
-            informacion, por lo que siempre a los datos sensibles deben darle un tratado especial para aumentar su seguridad.
-        </li>
-        <li>
-            Respaldo de Datos: Realiza respaldos regulares de los datos para prevenir la perdida de datos debido a fallas de hardware,
-            corrupcion de software o errores humanos, al igual que usamos la redundancia para garantizar la disponibilidad de datos.
-        </li>
-        <li>
-            Organizacion de Datos: Organiza los datos de manera logica y accesible, utilizando sistemas de archivos, directorios y metadatos
-            para garantizar una recuperacion y gestion facil, al igual que usamos la Teoria de Codificacion para organizar y estructurar
-        </li>
-</ul>
+	<div class="w-full flex justify-center items-center gap-x-20">
+		<div class="w-1/2">
+			<h2 class="w-full my-10 text-xl font-bold">Tipos de almacenamiento</h2>
+			Para poder guardar los datos de manera segura y eficiente, existen multiples herramientas que su
+			uso va a depender de las necesidades especificas. Estos son los metodos mas comunes de almacenamiento
 
+			<div class="w-full flex justify-center items-center rounded-lg mt-10">
+				<Carousel.Root class=" w-72 h-80 text-center shadow-lg shadow-almacenamientoDatos-hover">
+					<Carousel.Content>
+						{#each data as item}
+							<Carousel.Item>
+								<Tipos title={item.title} description={item.description} imagen={item.imagen} />
+							</Carousel.Item>
+						{/each}
+					</Carousel.Content>
+					<Carousel.Previous />
+					<Carousel.Next />
+				</Carousel.Root>
+			</div>
+		</div>
+		<div class="w-1/2 h-[580px]">
+			<h2 class="w-full mt-10 mb-5 text-xl font-bold">Mejores Practicas para almacenar datos</h2>
+			Estos metodos utilizan las siguientes caracteristicas para garantizar la seguridad
+			y eficiencia de los datos
+			<div class="w-full flex justify-center items-center rounded-lg mt-32">
+				<Carousel.Root
+					class=" w-72 h-fit py-5 text-center shadow-lg shadow-almacenamientoDatos-hover"
+				>
+					<Carousel.Content>
+						{#each consideraciones as item}
+							<Carousel.Item>
+								<Tipos title={item.title} description={item.description} />
+							</Carousel.Item>
+						{/each}
+					</Carousel.Content>
+					<Carousel.Previous />
+					<Carousel.Next />
+				</Carousel.Root>
+			</div>
+		</div>
+	</div>
 </div>

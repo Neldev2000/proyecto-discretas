@@ -90,7 +90,7 @@
 	<div class="w-full grid grid-cols-3 justify-center items-center mx-20">
 		{#each deteccion as item}
 			<Dialog.Root>
-				<Dialog.Trigger>
+				<Dialog.Trigger  class="w-fit">
 					<Card titulo={item.titulo} />
 				</Dialog.Trigger>
 				<Dialog.Content class="sm:max-w-[700px] sm:max-h-[700px] overflow-y-auto">
@@ -112,7 +112,7 @@
 	<div class="w-full mt-10 grid grid-cols-2 justify-center items-center mx-20">
 		{#each correcciones as correccion}
 			<Dialog.Root>
-				<Dialog.Trigger>
+				<Dialog.Trigger class="w-fit">
 					<Card titulo={correccion.titulo} />
 				</Dialog.Trigger>
 				<Dialog.Content class="sm:max-w-[700px] sm:max-h-[700px] overflow-y-auto">

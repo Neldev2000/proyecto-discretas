@@ -36,7 +36,9 @@ const config = {
           	'end-gradient': '#F7CE68',
 		},
 		almacenamientoDatos: {
-			hover: "#8BC6EC"
+			hover: "#4facfe",
+			'start-gradient': '#4facfe',
+          	'end-gradient': '#00f2fe',
 		},
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",
