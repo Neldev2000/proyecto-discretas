@@ -40,7 +40,7 @@
 	];
 </script>
 
-<div class="text-lg">
+<div class="text-lg mb-10">
 	<div
 		class="flex p-10 gap-x-20 mr-10 my-10 rounded-lg bg-gradient-to-bl from-errores-end-gradient to-errores-start-gradient"
 	>
